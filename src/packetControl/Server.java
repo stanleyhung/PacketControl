@@ -27,7 +27,7 @@ public class Server {
 	static ExecutorService executor;
 	public final static String SUCCESS = "SUCCESS";
 	public final static String FAILURE = "FAILURE";
-	public final static String MAGIC = "Turn On";
+	public final static String MAGIC = "Turn On VLC";
 	
 	public Server() {
 		try {

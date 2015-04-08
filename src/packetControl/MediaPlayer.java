@@ -18,12 +18,19 @@ class MediaPlayer implements Runnable{
 	public int handle(Message m) {
 		try {
 			System.out.println("VLC handling message: " + m.getMessage());
-			for (int key : m.getKeys()) {
-				robot.keyPress(key);
+			if (!m.isMouseEvent()) {
+				for (int key : m.getKeys()) {
+					robot.keyPress(key);
+				}
+				for (int key : m.getKeys()) {
+					robot.keyRelease(key);
+				}
+			} else {
+				for (int key : m.getKeys()) {
+					robot.mouseWheel(key);
+				}
 			}
-			for (int key : m.getKeys()) {
-				robot.keyRelease(key);
-			}
+			
 		} catch (IllegalArgumentException e) {
 			e.printStackTrace();
 			return -1;
